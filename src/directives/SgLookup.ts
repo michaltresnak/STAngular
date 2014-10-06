@@ -19,7 +19,8 @@ module STAngular {
                     minSearchLength: "@",
                     ngRequired: "=",
                     ngReadOnly: "=",
-                    resourceFilter: "&"
+                    resourceFilter: "&",
+                    selectedItem: "="
                 },                
                 link: (scope, elm, attrs, ctrl) => {
                     var modelGet = $parse(scope.ngModel),
@@ -72,6 +73,7 @@ module STAngular {
 
                     var setItem = (item) => {
                         scope.selected = item;
+                        scope.selectedItem = item;
                         if (item) {
                             scope.filterText = item[scope.display];
                             scope.selectedId = item.Id;
